@@ -142,15 +142,51 @@ angularStyle.directive('asPR', function() {
 /*
  * FONT DIRECTIVES
  */
-angularStyle.directive('asFSmallCaps', function() {
-    return { restrict: 'A',
-        link: function(scope, element, attr) {
-            element.css({
-                'font-size': config.smallCaps.size + 'px',
-                'text-transform': 'uppercase',
-                'font-weight': config.smallCaps.weight,
-                'color': config.smallCaps.color
-            });
+angularStyle.directive('asFSeperator', function() {
+    return {
+        restrict: 'E',
+        templateUrl: "js/templates/seperator.html",
+        scope: {
+            text: '@text'
+        },
+        controller: function($scope) {
         }
     };
 });
+
+/*
+ * INPUT
+ */
+ angularStyle.directive('asIText', function() {
+     return { restrict: 'A',
+         link: function(scope, element, attr) {
+             element.css({
+                 'width': '100%',
+                 'border-radius': '4px',
+                 'outline': 'none',
+                 'border': '1px solid #373737',
+                 'padding': '8px',
+                 'font-size': '14px',
+                 'color': '#373737'
+             });
+         }
+     };
+ });
+ angularStyle.directive('asIButton', function() {
+     return { restrict: 'A',
+         link: function(scope, element, attr) {
+             element.css({
+                 'width': '100%',
+                 'border-radius': '4px',
+                 'outline': 'none',
+                 'padding': '12px 8px',
+                 'font-size': '11px',
+                 'color': '#fff',
+                 'background': '#0080FF',
+                 'border': 'none',
+                 'font-weight': 'bold',
+                 'text-transform': 'uppercase',
+             });
+         }
+     };
+ });
