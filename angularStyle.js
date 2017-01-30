@@ -1,10 +1,5 @@
 var config = {
     pixelMultiplier: 4,
-    smallCaps: {
-        size: 11,
-        weight: 700,
-        color: '#8A95A6'
-    }
 };
 
 var angularStyle = angular.module('angularStyle', ['ngRoute']);
@@ -81,7 +76,7 @@ angularStyle.directive('asPXy', function() {
     return { restrict: 'A', scope: { asPXy: '=' },
         link: function(scope, element, attr) {
             var pixels = config.pixelMultiplier * scope.asPXy + 'px';
-            element.css({ padding: pixels });
+            element.css({ padding: pixels});
         }
     };
 });
@@ -153,39 +148,92 @@ angularStyle.directive('asFSeperator', function() {
         }
     };
 });
+angularStyle.directive('asF', function() {
+    return { restrict: 'A', scope: {
+            asF: '@'
+        },
+        link: function(scope, element, attr) {
+            var params = scope.asF.split(" ");
+            var size, weight;
+
+            if(params[0] === 'xs') size = 8;
+            else if(params[0] === 's') size = 11;
+            else if(params[0] === 'm') size = 14;
+            else if(params[0] === 'l') size = 21;
+            else if(params[0] === 'xl') size = 26;
+
+            if(params[1] === 'normal') weight = 400;
+            else if(params[1] === 'bold') weight = 700;
+            else if(params[1] === 'black') weight = 900;
+
+            element.css({
+                'font-size': size + 'px',
+                'font-weight': weight
+            });
+        }
+    };
+});
 
 /*
  * INPUT
  */
- angularStyle.directive('asIText', function() {
-     return { restrict: 'A',
-         link: function(scope, element, attr) {
+angularStyle.directive('asIText', function() {
+    return { restrict: 'A',
+        link: function(scope, element, attr) {
+            element.css({
+                'width': 'calc(100% - 16px)',
+                'border-radius': '4px',
+                'outline': 'none',
+                'border': '1px solid #F4F5F7',
+                'padding': '8px',
+                'font-size': '14px',
+                'color': '#373737'
+            });
+
+        }
+    };
+});
+angularStyle.directive('asIButton', function() {
+ return { restrict: 'A',
+     link: function(scope, element, attr) {
+         element.css({
+             'width': '100%',
+             'border-radius': '4px',
+             'outline': 'none',
+             'padding': '12px 8px',
+             'font-size': '11px',
+             'color': '#fff',
+             'background': '#528BFD',
+             'border': 'none',
+             'font-weight': 'bold',
+             'text-transform': 'uppercase',
+         });
+         element.on('mouseenter', function() {
              element.css({
-                 'width': '100%',
-                 'border-radius': '4px',
-                 'outline': 'none',
-                 'border': '1px solid #373737',
-                 'padding': '8px',
-                 'font-size': '14px',
-                 'color': '#373737'
+                 'background': '#487BE3',
+                 'cursor': 'pointer'
              });
-         }
-     };
- });
- angularStyle.directive('asIButton', function() {
+         });
+         element.on('mouseleave', function() {
+             element.css({
+                 'background': '#528BFD',
+                 'box-shadow': 'none'
+             });
+         });
+     }
+ };
+});
+
+/*
+ * CARD
+ */
+ angularStyle.directive('asCard', function() {
      return { restrict: 'A',
          link: function(scope, element, attr) {
              element.css({
-                 'width': '100%',
+                 'background': '#fff',
                  'border-radius': '4px',
-                 'outline': 'none',
-                 'padding': '12px 8px',
-                 'font-size': '11px',
-                 'color': '#fff',
-                 'background': '#0080FF',
-                 'border': 'none',
-                 'font-weight': 'bold',
-                 'text-transform': 'uppercase',
+                 'box-shadow': '0 0 15px rgba(48, 48, 48, 0.1)'
              });
          }
      };
