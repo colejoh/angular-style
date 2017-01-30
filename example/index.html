@@ -3,13 +3,23 @@
     <head>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,900" rel="stylesheet">
         <script src="app.js"></script>
-        <script src="angularStyle.js"></script>
-        <style>body {font-family: 'Helvetica'; background: #E9E6E5}</style>
+        <script src="../angularStyle.js"></script>
+        <style>body {font-family: 'Raleway'; background: #F6F7FB; margin: 0px}</style>
     </head>
     <body ng-controller="main">
-        <div as-p-xy="5" as-f-small-caps>
-            {{message}}
+        <div as-p-xy="4">
+            <div as-p-b="4">
+                <div as-f="l bold">Test App</div>
+            </div>
+            <div as-card as-p-xy="4">
+                <div as-f="s bold">{{message}}</div>
+                <div as-m-y="4">
+                    <input as-i-text></input>
+                </div>
+                <input as-i-button type="submit"></input>
+            </div>
         </div>
     </body>
 </html>
