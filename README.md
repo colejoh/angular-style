@@ -51,6 +51,7 @@ Angular style includes a font pattern too. The patter is as follows ```as-f='<si
 * m
 * l
 * xl
+
 #### Weight:
 * normal
 * bold
