@@ -56,3 +56,21 @@ Angular style includes a font pattern too. The patter is as follows ```as-f='<si
 * normal
 * bold
 * black
+
+The following would result in large bold text:
+```html
+<div as-f="l bold">Test</div>
+```
+
+### Input
+These are for a text input and a button:
+```html
+<input as-i-text>
+<input as-i-button>
+```
+### Other Elements
+#### Card
+This is a card to view data.
+```html
+<div as-card></div>
+```
