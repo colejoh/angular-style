@@ -28,7 +28,7 @@ The following would result in a div with margin of 16px in all directions.
 ```
 
 ### Padding
-The general pattern for using padding is ```as-p-<direction>```. Angular-style supportst the following directions for padding:
+The general pattern for using padding is ```as-p-<direction>```. Angular-style supports the following directions for padding:
 * xy: Padding in all directions
 * x: Padding left and right
 * y: Padding top and bottom
@@ -43,3 +43,15 @@ The following would result in a div with padding of 16px in all directions.
   Your Content
 </div>
 ```
+### Fonts
+Angular style includes a font pattern too. The patter is as follows ```as-f='<size> <weight>'```. The following are weight and size combos.
+#### Size:
+* xs
+* s
+* m
+* l
+* xl
+#### Weight:
+* normal
+* bold
+* black
