@@ -140,7 +140,7 @@ angularStyle.directive('asPR', function() {
 angularStyle.directive('asFSeperator', function() {
     return {
         restrict: 'E',
-        templateUrl: "js/templates/seperator.html",
+        template: "<style>.section-title { width: 100%; height: 10px; border-bottom: 1px solid #EFEFEF; text-align: left; margin-top: 8px; } .section-title span { font-size: 12px; background: #FFF; color: #D6D6D6; padding-right: 8px; } </style> <div class='section-title'><span>{{text}}</span></div>",
         scope: {
             text: '@text'
         },
