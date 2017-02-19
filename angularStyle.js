@@ -2,7 +2,7 @@ var config = {
   pixelMultiplier: 4
 };
 
-angular.module('angularStyle', ['ngRoute'])
+angular.module('angularStyle', [])
 
 /*
  * MARGIN DIRECTIVES
