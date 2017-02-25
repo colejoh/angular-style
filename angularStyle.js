@@ -300,7 +300,7 @@ angular.module('angularStyle', [])
         'font-size': '11px',
         'color': '#fff',
         'background': '#528BFD',
-        'border': 'none',
+        'border': 'none'
       });
       element.on('mouseenter', function () {
         element.css({
@@ -329,7 +329,7 @@ angular.module('angularStyle', [])
         'font-size': '11px',
         'color': '#fff',
         'background': '#15CD72',
-        'border': 'none',
+        'border': 'none'
       });
       element.on('mouseenter', function () {
         element.css({
@@ -358,7 +358,7 @@ angular.module('angularStyle', [])
         'font-size': '11px',
         'color': '#fff',
         'background': '#F9532C',
-        'border': 'none',
+        'border': 'none'
       });
       element.on('mouseenter', function () {
         element.css({
