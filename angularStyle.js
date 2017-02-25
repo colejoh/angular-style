@@ -301,8 +301,6 @@ angular.module('angularStyle', [])
         'color': '#fff',
         'background': '#528BFD',
         'border': 'none',
-        'font-weight': 'bold',
-        'text-transform': 'uppercase'
       });
       element.on('mouseenter', function () {
         element.css({
@@ -313,6 +311,64 @@ angular.module('angularStyle', [])
       element.on('mouseleave', function () {
         element.css({
           'background': '#528BFD',
+          'box-shadow': 'none'
+        });
+      });
+    }
+  };
+})
+.directive('asIButtonGood', function () {
+  return {
+    restrict: 'A',
+    link: function (scope, element) {
+      element.css({
+        'width': '100%',
+        'border-radius': '4px',
+        'outline': 'none',
+        'padding': '12px 8px',
+        'font-size': '11px',
+        'color': '#fff',
+        'background': '#15CD72',
+        'border': 'none',
+      });
+      element.on('mouseenter', function () {
+        element.css({
+          background: '#0CB863',
+          cursor: 'pointer'
+        });
+      });
+      element.on('mouseleave', function () {
+        element.css({
+          'background': '#15CD72',
+          'box-shadow': 'none'
+        });
+      });
+    }
+  };
+})
+.directive('asIButtonBad', function () {
+  return {
+    restrict: 'A',
+    link: function (scope, element) {
+      element.css({
+        'width': '100%',
+        'border-radius': '4px',
+        'outline': 'none',
+        'padding': '12px 8px',
+        'font-size': '11px',
+        'color': '#fff',
+        'background': '#F9532C',
+        'border': 'none',
+      });
+      element.on('mouseenter', function () {
+        element.css({
+          background: '#E44924',
+          cursor: 'pointer'
+        });
+      });
+      element.on('mouseleave', function () {
+        element.css({
+          'background': '#F9532C',
           'box-shadow': 'none'
         });
       });
