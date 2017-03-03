@@ -1,5 +1,22 @@
 var config = {
-  pixelMultiplier: 4
+  pixelMultiplier: 4,
+  colors: {
+    primary: {
+      light: '#ED9DBB',
+      dark: '#D48CA7'
+    },
+    good: {
+      light: '#15CD72',
+      dark: '#0CB863'
+    },
+    bad: {
+      light: '#F9532C',
+      dark: '#E44924'
+    },
+    dark: '#202020',
+    mono: '#7C7977',
+    light: '#CECBC9'
+  }
 };
 
 angular.module('angularStyle', [])
@@ -7,7 +24,7 @@ angular.module('angularStyle', [])
 /*
  * MARGIN DIRECTIVES
  */
-.directive('asMXy', function () {
+.directive('asMXy', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -15,13 +32,21 @@ angular.module('angularStyle', [])
     },
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asMXy + 'px';
-      element.css({
-        margin: pixels
-      });
+      element.addClass('margin-xy-' + pixels);
+      var styles = [
+        'margin: ' + pixels
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.margin-xy-' + pixels, styleString, $document);
     }
   };
 })
-.directive('asMX', function () {
+.directive('asMX', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -30,13 +55,22 @@ angular.module('angularStyle', [])
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asMX + 'px';
       var margin = '0 ' + pixels;
-      element.css({
-        margin: margin
-      });
+
+      element.addClass('margin-x-' + pixels);
+      var styles = [
+        'margin: ' + margin
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.margin-x-' + pixels, styleString, $document);
     }
   };
 })
-.directive('asMY', function () {
+.directive('asMY', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -45,13 +79,22 @@ angular.module('angularStyle', [])
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asMY + 'px';
       var margin = pixels + ' 0';
-      element.css({
-        margin: margin
-      });
+
+      element.addClass('margin-y-' + pixels);
+      var styles = [
+        'margin: ' + margin
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.margin-y-' + pixels, styleString, $document);
     }
   };
 })
-.directive('asMT', function () {
+.directive('asMT', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -60,13 +103,21 @@ angular.module('angularStyle', [])
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asMT + 'px';
       var margin = pixels + ' 0 0 0';
-      element.css({
-        margin: margin
-      });
+      element.addClass('margin-t-' + pixels);
+      var styles = [
+        'margin: ' + margin
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.margin-t-' + pixels, styleString, $document);
     }
   };
 })
-.directive('asMB', function () {
+.directive('asMB', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -75,13 +126,21 @@ angular.module('angularStyle', [])
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asMB + 'px';
       var margin = '0 0 ' + pixels + ' 0';
-      element.css({
-        margin: margin
-      });
+      element.addClass('margin-b-' + pixels);
+      var styles = [
+        'margin: ' + margin
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.margin-b-' + pixels, styleString, $document);
     }
   };
 })
-.directive('asML', function () {
+.directive('asML', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -90,13 +149,21 @@ angular.module('angularStyle', [])
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asML + 'px';
       var margin = '0 0 0 ' + pixels;
-      element.css({
-        margin: margin
-      });
+      element.addClass('margin-l-' + pixels);
+      var styles = [
+        'margin: ' + margin
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.margin-l-' + pixels, styleString, $document);
     }
   };
 })
-.directive('asMR', function () {
+.directive('asMR', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -105,16 +172,24 @@ angular.module('angularStyle', [])
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asMR + 'px';
       var margin = '0 ' + pixels + ' 0 0';
-      element.css({
-        margin: margin
-      });
+      element.addClass('margin-r-' + pixels);
+      var styles = [
+        'margin: ' + margin
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.margin-r-' + pixels, styleString, $document);
     }
   };
 })
 /*
  * PADDING DIRECTIVES
  */
-.directive('asPXy', function () {
+.directive('asPXy', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -122,13 +197,21 @@ angular.module('angularStyle', [])
     },
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asPXy + 'px';
-      element.css({
-        padding: pixels
-      });
+      element.addClass('padding-xy-' + pixels);
+      var styles = [
+        'padding: ' + pixels
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.padding-xy-' + pixels, styleString, $document);
     }
   };
 })
-.directive('asPX', function () {
+.directive('asPX', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -137,13 +220,21 @@ angular.module('angularStyle', [])
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asPX + 'px';
       var padding = '0 ' + pixels;
-      element.css({
-        padding: padding
-      });
+      element.addClass('padding-x-' + pixels);
+      var styles = [
+        'padding: ' + padding
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.padding-x-' + pixels, styleString, $document);
     }
   };
 })
-.directive('asPY', function () {
+.directive('asPY', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -152,13 +243,21 @@ angular.module('angularStyle', [])
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asPY + 'px';
       var padding = pixels + ' 0';
-      element.css({
-        padding: padding
-      });
+      element.addClass('padding-y-' + pixels);
+      var styles = [
+        'padding: ' + padding
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.padding-y-' + pixels, styleString, $document);
     }
   };
 })
-.directive('asPT', function () {
+.directive('asPT', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -167,13 +266,21 @@ angular.module('angularStyle', [])
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asPT + 'px';
       var padding = pixels + ' 0 0 0';
-      element.css({
-        padding: padding
-      });
+      element.addClass('padding-t-' + pixels);
+      var styles = [
+        'padding: ' + padding
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.padding-t-' + pixels, styleString, $document);
     }
   };
 })
-.directive('asPB', function () {
+.directive('asPB', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -182,13 +289,21 @@ angular.module('angularStyle', [])
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asPB + 'px';
       var padding = '0 0 ' + pixels + ' 0';
-      element.css({
-        padding: padding
-      });
+      element.addClass('padding-b-' + pixels);
+      var styles = [
+        'padding: ' + padding
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.padding-b-' + pixels, styleString, $document);
     }
   };
 })
-.directive('asPL', function () {
+.directive('asPL', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -197,13 +312,21 @@ angular.module('angularStyle', [])
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asPL + 'px';
       var padding = '0 0 0 ' + pixels;
-      element.css({
-        padding: padding
-      });
+      element.addClass('padding-l-' + pixels);
+      var styles = [
+        'padding: ' + padding
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.padding-l-' + pixels, styleString, $document);
     }
   };
 })
-.directive('asPR', function () {
+.directive('asPR', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -212,25 +335,24 @@ angular.module('angularStyle', [])
     link: function (scope, element) {
       var pixels = config.pixelMultiplier * scope.asPR + 'px';
       var padding = '0 ' + pixels + ' 0 0';
-      element.css({
-        padding: padding
-      });
+      element.addClass('padding-r-' + pixels);
+      var styles = [
+        'padding: ' + padding
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.padding-r-' + pixels, styleString, $document);
     }
   };
 })
 /*
  * FONT DIRECTIVES
  */
-.directive('asFSeperator', function () {
-  return {
-    restrict: 'E',
-    template: "<style>.section-title { width: 100%; height: 10px; border-bottom: 1px solid #EFEFEF; text-align: left; margin-top: 8px; } .section-title span { font-size: 12px; background: #FFF; color: #D6D6D6; padding-right: 8px; } </style> <div class='section-title'><span>{{text}}</span></div>",
-    scope: {
-      text: '@text'
-    }
-  };
-})
-.directive('asF', function () {
+.directive('asF', function ($document) {
   return {
     restrict: 'A',
     scope: {
@@ -261,10 +383,42 @@ angular.module('angularStyle', [])
         weight = 900;
       }
 
-      element.css({
-        'font-size': size + 'px',
-        'font-weight': weight
-      });
+      element.addClass('font-' + size + '-' + weight);
+      var styles = [
+        'font-size: ' + size + 'px',
+        'font-weight: ' + weight
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.font-' + size + '-' + weight, styleString, $document);
+    }
+  };
+})
+.directive('asFC', function ($document) {
+  return {
+    restrict: 'A',
+    scope: {
+      asFC: '@'
+    },
+    link: function (scope, element) {
+      var color = config.colors[scope.asFC];
+
+      element.addClass('font-color-' + scope.asFC);
+      var styles = [
+        'color: ' + color
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+
+      createCSSSelector('.font-color-' + scope.asFC, styleString, $document);
     }
   };
 })
@@ -272,106 +426,110 @@ angular.module('angularStyle', [])
 /*
  * INPUT
  */
-.directive('asIText', function () {
+.directive('asIText', function ($document) {
   return {
     restrict: 'A',
     link: function (scope, element) {
-      element.css({
-        'width': 'calc(100% - 16px)',
-        'border-radius': '4px',
-        'outline': 'none',
-        'border': '1px solid #F4F5F7',
-        'padding': '8px',
-        'font-size': '14px',
-        'color': '#373737'
-      });
+      element.addClass('as-input');
+      var styles = [
+        'width: 100%',
+        'border-radius: 4px',
+        'outline: none',
+        'border: 2px solid ' + config.colors.light,
+        'padding: 8px',
+        'font-size: 14px',
+        'color: ' + config.colors.dark
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+
+      createCSSSelector('.as-input', styleString, $document);
+      createCSSSelector('.as-input:focus', 'border: 2px solid ' + config.colors.mono, $document);
     }
   };
 })
-.directive('asIButton', function () {
+.directive('asIButton', function ($document) {
   return {
     restrict: 'A',
     link: function (scope, element) {
-      element.css({
-        'width': '100%',
-        'border-radius': '4px',
-        'outline': 'none',
-        'padding': '12px 8px',
-        'font-size': '11px',
-        'color': '#fff',
-        'background': '#528BFD',
-        'border': 'none'
-      });
-      element.on('mouseenter', function () {
-        element.css({
-          background: '#487BE3',
-          cursor: 'pointer'
-        });
-      });
-      element.on('mouseleave', function () {
-        element.css({
-          'background': '#528BFD',
-          'box-shadow': 'none'
-        });
-      });
+      element.addClass('button-primary');
+      var styles = [
+        'width: 100%',
+        'border-radius: 4px',
+        'outline: none',
+        'padding: 12px 8px',
+        'font-size: 11px',
+        'color: #fff',
+        'background: ' + config.colors.primary.light,
+        'border: none',
+        'border-bottom: 2px solid ' + config.colors.primary.dark
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.button-primary', styleString, $document);
+      createCSSSelector('.button-primary:hover', 'background: ' + config.colors.primary.dark + '; cursor: pointer', $document);
     }
   };
 })
-.directive('asIButtonGood', function () {
+.directive('asIButtonGood', function ($document) {
   return {
     restrict: 'A',
     link: function (scope, element) {
-      element.css({
-        'width': '100%',
-        'border-radius': '4px',
-        'outline': 'none',
-        'padding': '12px 8px',
-        'font-size': '11px',
-        'color': '#fff',
-        'background': '#15CD72',
-        'border': 'none'
-      });
-      element.on('mouseenter', function () {
-        element.css({
-          background: '#0CB863',
-          cursor: 'pointer'
-        });
-      });
-      element.on('mouseleave', function () {
-        element.css({
-          'background': '#15CD72',
-          'box-shadow': 'none'
-        });
-      });
+      element.addClass('button-good');
+      var styles = [
+        'width: 100%',
+        'border-radius: 4px',
+        'outline: none',
+        'padding: 12px 8px',
+        'font-size: 11px',
+        'color: #fff',
+        'background: ' + config.colors.good.light,
+        'border: none',
+        'border-bottom: 2px solid ' + config.colors.good.dark
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.button-good', styleString, $document);
+      createCSSSelector('.button-good:hover', 'background: ' + config.colors.good.dark + '; cursor: pointer', $document);
     }
   };
 })
-.directive('asIButtonBad', function () {
+.directive('asIButtonBad', function ($document) {
   return {
     restrict: 'A',
     link: function (scope, element) {
-      element.css({
-        'width': '100%',
-        'border-radius': '4px',
-        'outline': 'none',
-        'padding': '12px 8px',
-        'font-size': '11px',
-        'color': '#fff',
-        'background': '#F9532C',
-        'border': 'none'
-      });
-      element.on('mouseenter', function () {
-        element.css({
-          background: '#E44924',
-          cursor: 'pointer'
-        });
-      });
-      element.on('mouseleave', function () {
-        element.css({
-          'background': '#F9532C',
-          'box-shadow': 'none'
-        });
-      });
+      element.addClass('button-bad');
+      var styles = [
+        'width: 100%',
+        'border-radius: 4px',
+        'outline: none',
+        'padding: 12px 8px',
+        'font-size: 11px',
+        'color: #fff',
+        'background: ' + config.colors.bad.light,
+        'border: none',
+        'border-bottom: 2px solid ' + config.colors.bad.dark
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.button-bad', styleString, $document);
+      createCSSSelector('.button-bad:hover', 'background: ' + config.colors.bad.dark + '; cursor: pointer', $document);
     }
   };
 })
@@ -379,15 +537,97 @@ angular.module('angularStyle', [])
 /*
  * CARD
  */
-.directive('asCard', function () {
+.directive('asCard', function ($document) {
   return {
     restrict: 'A',
     link: function (scope, element) {
-      element.css({
-        'background': '#fff',
-        'border-radius': '4px',
-        'box-shadow': '0 0 15px rgba(48, 48, 48, 0.1)'
-      });
+      element.addClass('as-card');
+      var styles = [
+        'background: #fff',
+        'border-radius: 4px',
+        'box-shadow: 0 0 15px rgba(48, 48, 48, 0.1)'
+      ];
+
+      var styleString = '';
+      for (var i = 0; i < styles.length; i++) {
+        styleString += styles[i];
+        styleString += '; ';
+      }
+      createCSSSelector('.as-card', styleString, $document);
     }
   };
 });
+
+function createCSSSelector(selector, style, $document) {
+  var doc = $document[0];
+
+  if (!doc.styleSheets) {
+    return;
+  }
+  if (doc.getElementsByTagName('head').length === 0) {
+    return;
+  }
+
+  var styleSheet;
+  var mediaType;
+  var i;
+  var l;
+
+  if (doc.styleSheets.length > 0) {
+    for (i = 0, l = doc.styleSheets.length; i < l; i++) {
+      if (doc.styleSheets[i].disabled) {
+        continue;
+      }
+      var media = doc.styleSheets[i].media;
+      mediaType = typeof media;
+
+      if (angular.isString(media)) {
+        if (media === '' || (media.indexOf('screen') !== -1)) {
+          styleSheet = doc.styleSheets[i];
+        }
+      } else if (angular.isObject(mediaType)) {
+        if (media.mediaText === '' || (media.mediaText.indexOf('screen') !== -1)) {
+          styleSheet = doc.styleSheets[i];
+        }
+      }
+
+      if (angular.isUndefined(styleSheet)) {
+        break;
+      }
+    }
+  }
+
+  if (angular.isUndefined(styleSheet)) {
+    var styleSheetElement = doc.createElement('style');
+    styleSheetElement.type = 'text/css';
+    doc.getElementsByTagName('head')[0].appendChild(styleSheetElement);
+
+    for (i = 0; i < doc.styleSheets.length; i++) {
+      if (doc.styleSheets[i].disabled) {
+        continue;
+      }
+      styleSheet = doc.styleSheets[i];
+    }
+
+    mediaType = typeof styleSheet.media;
+  }
+
+  if (angular.isString(mediaType)) {
+    for (i = 0, l = styleSheet.rules.length; i < l; i++) {
+      if (styleSheet.rules[i].selectorText && styleSheet.rules[i].selectorText.toLowerCase() === selector.toLowerCase()) {
+        styleSheet.rules[i].style.cssText = style;
+        return;
+      }
+    }
+    styleSheet.addRule(selector, style);
+  } else if (angular.isObject(mediaType)) {
+    var styleSheetLength = (styleSheet.cssRules) ? styleSheet.cssRules.length : 0;
+    for (i = 0; i < styleSheetLength; i++) {
+      if (styleSheet.cssRules[i].selectorText && styleSheet.cssRules[i].selectorText.toLowerCase() === selector.toLowerCase()) {
+        styleSheet.cssRules[i].style.cssText = style;
+        return;
+      }
+    }
+    styleSheet.insertRule(selector + '{' + style + '}', styleSheetLength);
+  }
+}
